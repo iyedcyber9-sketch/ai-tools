@@ -4,230 +4,226 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Tools - Free Offline AI | Download</title>
-  <meta name="description" content="Free offline AI assistant with DeepSeek & Qwen models. Runs on Windows, Linux, and Android. No API keys, no internet needed.">
-  <meta name="keywords" content="AI, offline, DeepSeek, Qwen, free, open source, Android, Windows, Linux">
-  <meta property="og:title" content="AI Tools - Free Offline AI">
-  <meta property="og:description" content="Free local AI that runs on your own CPU/GPU. No API keys, no internet needed.">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Free offline AI assistant with DeepSeek & Qwen models. Windows, Linux, Android.">
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="assets/icon.svg" alt="AI Tools" width="40" height="40">
+        <img src="assets/icon.svg" alt="AI Tools" width="36" height="36">
         <span class="logo-text">AI Tools</span>
         <span class="version-badge" id="version-badge">v1.0.1</span>
       </div>
       <nav class="nav">
-        <a href="#features">Features</a>
         <a href="#download">Download</a>
-        <a href="#models">Models</a>
-        <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank">GitHub</a>
+        <a href="#features">Features</a>
+        <a href="#community">Community</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <h1>Free Offline AI for Everyone</h1>
-      <p class="hero-sub">DeepSeek & Qwen models running locally on your CPU/GPU. No API keys, no data leaves your device.</p>
+      <p class="hero-sub">DeepSeek & Qwen models running locally on your device. No API keys needed.</p>
       <div class="hero-stats">
         <div class="stat"><strong>30+</strong><span>Models</span></div>
         <div class="stat"><strong>3</strong><span>Platforms</span></div>
-        <div class="stat"><strong>0</strong><span>API Keys</span></div>
+        <div class="stat"><strong id="total-downloads">82</strong><span>Downloads</span></div>
       </div>
-      <a href="#download" class="btn btn-primary btn-lg" id="hero-download-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download for <span id="hero-os">your platform</span>
-      </a>
+      <a href="#download" class="btn btn-primary btn-lg">Download Now</a>
     </div>
   </section>
 
-  <!-- Features -->
   <section class="features" id="features">
     <div class="container">
       <h2>Why AI Tools?</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <h3>100% Private</h3>
-          <p>All inference happens locally. Your conversations never leave your device. Zero telemetry.</p>
+          <p>All inference happens locally. Your conversations never leave your device.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <h3>Multi-Platform</h3>
-          <p>Windows, Linux, Android - same features everywhere. Build once, run anywhere.</p>
+          <p>Windows, Linux, Android - same features everywhere.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8"/><path d="M8 8h8v8"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8"/><path d="M8 8h8v8"/></svg></div>
           <h3>GPU Accelerated</h3>
-          <p>Auto-detects NVIDIA CUDA, Vulkan, OpenCL. Falls back to CPU when no GPU available.</p>
+          <p>Auto-detects NVIDIA CUDA, Vulkan, OpenCL.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           <h3>PDF Q&A</h3>
-          <p>Upload PDFs and ask questions. AI extracts text and answers using RAG context.</p>
+          <p>Upload PDFs and ask questions. AI answers using RAG.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Download -->
   <section class="download" id="download">
     <div class="container">
       <h2>Download AI Tools</h2>
-      <p class="download-sub">Choose your platform. Free forever, no account required.</p>
-
+      <p class="download-sub">Free forever. No account needed.</p>
       <div class="download-cards">
-        <!-- Windows -->
         <div class="download-card" data-os="windows">
-          <div class="card-icon windows-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="#0078d4"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-          </div>
+          <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#0078d4"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg></div>
           <h3>Windows</h3>
-          <p class="card-desc">Windows 10/11 (64-bit)</p>
-          <div class="card-meta">
-            <span class="card-size" id="win-size">~60 MB</span>
-            <span class="card-note">Requires Ollama for AI</span>
-          </div>
-          <div class="card-reqs">
-            <small>4GB RAM min &bull; Ollama included in setup</small>
-          </div>
-          <a href="download.php?file=windows" class="btn btn-download" onclick="trackDownload('windows')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download .exe
-          </a>
+          <p class="card-desc">Windows 10/11 64-bit</p>
+          <span class="card-size" id="win-size">~60 MB</span>
+          <a href="download.php?file=windows" class="btn btn-download">Download .exe</a>
         </div>
-
-        <!-- Linux -->
         <div class="download-card featured" data-os="linux">
-          <div class="card-badge">Recommended</div>
-          <div class="card-icon linux-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.199.029.345-.169.457-.372.115-.199.199-.476.34-.592.135-.134.273-.073.387-.04.267.067.456.274.697.369.336.135.598.069.867-.072.373-.193.604-.603.893-.894.199-.199.385-.495.697-.688.354-.199.74-.363 1.04-.601.135-.135.265-.267.338-.334a.43.43 0 01.156-.116c.098-.042.202-.067.308-.093.332-.07.668-.137.914-.47.199-.269.235-.535.226-.872-.01-.334-.106-.602-.267-.934-.135-.334-.268-.603-.268-1.003 0-.334.135-.534.268-.87.135-.334.268-.668.268-1.135 0-.2-.067-.334-.135-.534-.2-.535-.47-.802-.87-1.069-.399-.267-.87-.401-1.337-.468-.467-.067-.935-.067-1.404-.133-.47-.068-.936-.202-1.472-.134-.334.044-.536.203-.736.335-.467.334-.87.802-1.538 1.069-.334.135-.735.202-1.136.202-.4 0-.802-.067-1.136-.202-.668-.267-1.071-.735-1.538-1.069-.2-.132-.402-.29-.736-.335-.536-.068-1.003.066-1.472.134-.47.066-.938.066-1.405.133-.467.067-.937.2-1.337.468-.4.267-.67.534-.87 1.069-.067.2-.135.334-.135.534 0 .467.135.801.268 1.135.134.336.268.536.268.87 0 .337-.036.603-.226.872-.246.333-.582.4-.914.47a.428.428 0 00-.308.093l.003.003z"/></svg>
-          </div>
-          <h3>Kali Linux</h3>
-          <p class="card-desc">Kali/Ubuntu/Debian x64</p>
-          <div class="card-meta">
-            <span class="card-size" id="linux-size">~12 MB</span>
-            <span class="card-note">With Ollama auto-setup</span>
-          </div>
-          <div class="card-reqs">
-            <small>4GB RAM &bull; GTK3 &bull; libgtk-3-0</small>
-          </div>
-          <a href="download.php?file=linux" class="btn btn-download" onclick="trackDownload('linux')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download .tar.gz
-          </a>
+          <div class="card-badge">Popular</div>
+          <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.199.029.345-.169.457-.372.115-.199.199-.476.34-.592.135-.134.273-.073.387-.04.267.067.456.274.697.369.336.135.598.069.867-.072.373-.193.604-.603.893-.894.199-.199.385-.495.697-.688.354-.199.74-.363 1.04-.601.135-.135.265-.267.338-.334a.43.43 0 01.156-.116c.098-.042.202-.067.308-.093.332-.07.668-.137.914-.47.199-.269.235-.535.226-.872-.01-.334-.106-.602-.267-.934-.135-.334-.268-.603-.268-1.003 0-.334.135-.534.268-.87.135-.334.268-.668.268-1.135 0-.2-.067-.334-.135-.534-.2-.535-.47-.802-.87-1.069-.399-.267-.87-.401-1.337-.468-.467-.067-.935-.067-1.404-.133-.47-.068-.936-.202-1.472-.134-.334.044-.536.203-.736.335-.467.334-.87.802-1.538 1.069-.334.135-.735.202-1.136.202-.4 0-.802-.067-1.136-.202-.668-.267-1.071-.735-1.538-1.069-.2-.132-.402-.29-.736-.335-.536-.068-1.003.066-1.472.134-.47.066-.938.066-1.405.133-.467.067-.937.2-1.337.468-.4.267-.67.534-.87 1.069-.067.2-.135.334-.135.534 0 .467.135.801.268 1.135.134.336.268.536.268.87 0 .337-.036.603-.226.872-.246.333-.582.4-.914.47a.428.428 0 00-.308.093l.003.003z"/></svg></div>
+          <h3>Linux</h3>
+          <p class="card-desc">Kali / Ubuntu / Debian x64</p>
+          <span class="card-size" id="linux-size">~12 MB</span>
+          <a href="download.php?file=linux" class="btn btn-download">Download .tar.gz</a>
         </div>
-
-        <!-- Android -->
         <div class="download-card" data-os="android">
-          <div class="card-icon android-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="#3ddc84"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.21-1.2-4.15-2.97-5.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
-          </div>
+          <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#3ddc84"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.21-1.2-4.15-2.97-5.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg></div>
           <h3>Android</h3>
-          <p class="card-desc">Android 7+ (arm64)</p>
-          <div class="card-meta">
-            <span class="card-size" id="android-size">~24 MB</span>
-            <span class="card-note">On-device inference</span>
-          </div>
-          <div class="card-reqs">
-            <small>4GB RAM &bull; Android 7.0+ &bull; 200MB storage</small>
-          </div>
-          <a href="download.php?file=android" class="btn btn-download" onclick="trackDownload('android')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download .apk
-          </a>
+          <p class="card-desc">Android 7+ arm64</p>
+          <span class="card-size" id="android-size">~24 MB</span>
+          <a href="download.php?file=android" class="btn btn-download">Download .apk</a>
         </div>
       </div>
-
-      <!-- Download counts -->
       <div class="download-stats">
-        <div class="dl-stat"><span class="dl-count" id="dl-windows">0</span> Windows downloads</div>
-        <div class="dl-stat"><span class="dl-count" id="dl-linux">0</span> Linux downloads</div>
-        <div class="dl-stat"><span class="dl-count" id="dl-android">0</span> Android downloads</div>
+        <div class="dl-stat"><span class="dl-count" id="dl-windows">0</span> Windows</div>
+        <div class="dl-stat"><span class="dl-count" id="dl-linux">0</span> Linux</div>
+        <div class="dl-stat"><span class="dl-count" id="dl-android">0</span> Android</div>
       </div>
     </div>
   </section>
 
-  <!-- Models -->
-  <section class="models" id="models">
+  <!-- Community Section with Tabs -->
+  <section class="community" id="community">
     <div class="container">
-      <h2>AI Models Included</h2>
-      <p class="models-sub">30+ models from DeepSeek & Qwen families. Auto-detected for your hardware.</p>
-      <div class="models-grid">
-        <div class="model-family">
-          <h3>Qwen Family</h3>
-          <div class="model-list">
-            <div class="model-item">Qwen2.5 <span class="model-params">0.5B - 32B</span></div>
-            <div class="model-item">Qwen3 <span class="model-params">0.6B - 32B</span></div>
-            <div class="model-item">QwQ <span class="model-params">32B</span></div>
-            <div class="model-item">Qwen2.5-Coder <span class="model-params">7B</span></div>
-          </div>
+      <h2>Community</h2>
+      <p class="community-sub">Reviews, bug reports, and feedback from users like you.</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="reviews">Reviews</button>
+        <button class="tab" data-tab="bugs">Bug Reports</button>
+        <button class="tab" data-tab="submit-review">Write Review</button>
+        <button class="tab" data-tab="submit-bug">Report Bug</button>
+      </div>
+
+      <!-- Reviews List -->
+      <div class="tab-content active" id="tab-reviews">
+        <div id="reviews-list" class="items-list">
+          <div class="loading">Loading reviews...</div>
         </div>
-        <div class="model-family">
-          <h3>DeepSeek Family</h3>
-          <div class="model-list">
-            <div class="model-item">DeepSeek R1 <span class="model-params">1.5B - 32B</span></div>
-            <div class="model-item">DeepSeek Coder <span class="model-params">1.3B - 6.7B</span></div>
-          </div>
+      </div>
+
+      <!-- Bugs List -->
+      <div class="tab-content" id="tab-bugs">
+        <div id="bugs-list" class="items-list">
+          <div class="loading">Loading bug reports...</div>
         </div>
-        <div class="model-family">
-          <h3>4GB RAM Ready</h3>
-          <div class="model-list">
-            <div class="model-item">Qwen2.5 0.5B <span class="model-size">0.4 GB</span></div>
-            <div class="model-item">Qwen2.5 1.5B <span class="model-size">1.0 GB</span></div>
-            <div class="model-item">DeepSeek R1 1.5B <span class="model-size">1.0 GB</span></div>
+      </div>
+
+      <!-- Submit Review -->
+      <div class="tab-content" id="tab-submit-review">
+        <form id="review-form" class="submit-form">
+          <h3>Share Your Experience</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-name">Your Name</label>
+              <input type="text" id="review-name" placeholder="e.g. Ahmed" required>
+            </div>
+            <div class="form-group">
+              <label for="review-platform">Platform</label>
+              <select id="review-platform">
+                <option value="Windows">Windows</option>
+                <option value="Linux">Linux</option>
+                <option value="Android">Android</option>
+              </select>
+            </div>
           </div>
-        </div>
+          <div class="form-group">
+            <label>Rating</label>
+            <div class="star-rating" id="star-rating">
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review-message">Your Review</label>
+            <textarea id="review-message" rows="4" placeholder="Tell others about your experience with AI Tools..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Review</button>
+          <div id="review-msg" class="form-msg"></div>
+        </form>
+      </div>
+
+      <!-- Submit Bug -->
+      <div class="tab-content" id="tab-submit-bug">
+        <form id="bug-form" class="submit-form">
+          <h3>Report a Bug</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bug-name">Your Name</label>
+              <input type="text" id="bug-name" placeholder="e.g. Ahmed" required>
+            </div>
+            <div class="form-group">
+              <label for="bug-platform">Platform</label>
+              <select id="bug-platform">
+                <option value="Windows">Windows</option>
+                <option value="Linux">Linux</option>
+                <option value="Android">Android</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bug-version">App Version</label>
+              <input type="text" id="bug-version" placeholder="e.g. v1.0.1">
+            </div>
+            <div class="form-group">
+              <label for="bug-severity">Severity</label>
+              <select id="bug-severity">
+                <option value="low">Low - Minor issue</option>
+                <option value="medium" selected>Medium - Affects usage</option>
+                <option value="high">High - Major problem</option>
+                <option value="critical">Critical - App crashes</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bug-title">Bug Title</label>
+            <input type="text" id="bug-title" placeholder="Brief description of the bug" required>
+          </div>
+          <div class="form-group">
+            <label for="bug-message">Details</label>
+            <textarea id="bug-message" rows="4" placeholder="What happened? What did you expect?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="bug-steps">Steps to Reproduce</label>
+            <textarea id="bug-steps" rows="3" placeholder="1. Open app&#10;2. Click on...&#10;3. See error..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Bug Report</button>
+          <div id="bug-msg" class="form-msg"></div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Quick Start -->
-  <section class="quickstart">
-    <div class="container">
-      <h2>Quick Start</h2>
-      <div class="quickstart-grid">
-        <div class="quickstart-card">
-          <div class="qs-number">1</div>
-          <h3>Install Ollama</h3>
-          <code>ollama.com/download</code>
-        </div>
-        <div class="quickstart-card">
-          <div class="qs-number">2</div>
-          <h3>Pull a Model</h3>
-          <code>ollama pull qwen2.5:1.5b</code>
-        </div>
-        <div class="quickstart-card">
-          <div class="qs-number">3</div>
-          <h3>Launch AI Tools</h3>
-          <code>Start chatting offline</code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <p>&copy; 2026 AI Tools. MIT License. Open source.</p>
+      <p>&copy; 2026 AI Tools. MIT License.</p>
       <div class="footer-links">
         <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank">GitHub</a>
-        <a href="#features">Features</a>
         <a href="#download">Download</a>
+        <a href="#community">Community</a>
       </div>
     </div>
   </footer>
