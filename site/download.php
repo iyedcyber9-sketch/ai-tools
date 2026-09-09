@@ -17,9 +17,9 @@ $DB_PASS = ''; // SET THIS in cPanel MySQL
 
 // --- GitHub release URLs (fallback) ---
 $GITHUB_URLS = [
-    'windows' => 'https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_Windows_x64.zip',
-    'linux'   => 'https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_Kali_Linux_x64_release.tar.gz',
-    'android' => 'https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_arm64_release.apk',
+    'windows' => 'https://github.com/iyedcyber9-sketch/ai-tools/releases/download/v1.0.1/AI_Tools_Windows_x64.zip',
+    'linux'   => 'https://github.com/iyedcyber9-sketch/ai-tools/releases/download/v1.0.1/AI_Tools_Kali_Linux_x64_release.tar.gz',
+    'android' => 'https://github.com/iyedcyber9-sketch/ai-tools/releases/download/v1.0.1/AI_Tools_v1.0.1_arm64-release.apk',
 ];
 
 // --- MySQL helper ---
