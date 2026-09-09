@@ -1,5 +1,4 @@
 name: Build Windows EXE
-
 on:
   workflow_dispatch:
   release:
@@ -41,6 +40,6 @@ jobs:
       - name: Upload to release
         shell: bash
         env:
-          GITHUB_TOKEN: ${{{{ secrets.GITHUB_TOKEN }}}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload v1.0.1 AI_Tools_Windows_x64.zip --clobber
