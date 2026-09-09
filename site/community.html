@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community - AI Tools</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .comm-hero{padding:60px 0 30px;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .comm-hero h1{font-size:2em;margin-bottom:8px}
+    .comm-hero p{color:var(--text2)}
+    .section-nav{display:flex;gap:0;margin:0 auto 40px;max-width:500px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg)}
+    .section-nav button{flex:1;padding:14px;border:none;background:transparent;color:var(--text2);font-weight:600;font-size:.95em;cursor:pointer;transition:all .2s}
+    .section-nav button.active{background:var(--primary);color:#fff}
+    .section-nav button:hover:not(.active){color:var(--text)}
+    .comm-section{display:none;padding:0 0 60px}
+    .comm-section.active{display:block}
+    .comm-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+    .comm-header h2{font-size:1.3em;margin:0}
+    .comm-stats{display:flex;gap:16px;color:var(--text3);font-size:.85em}
+    .filter-bar{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+    .filter-btn{padding:6px 16px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text2);cursor:pointer;font-size:.85em;transition:all .2s}
+    .filter-btn.active,.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+    /* Review Cards */
+    .review-grid{display:grid;gap:16px}
+    .review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .2s}
+    .review-card:hover{border-color:var(--border2)}
+    .review-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+    .review-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;flex-shrink:0;color:#fff}
+    .avatar-a{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}.avatar-b{background:linear-gradient(135deg,#10b981,#059669)}.avatar-c{background:linear-gradient(135deg,#f59e0b,#d97706)}.avatar-d{background:linear-gradient(135deg,#ef4444,#dc2626)}.avatar-e{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    .review-info{flex:1}
+    .review-name{font-weight:600}
+    .review-date{color:var(--text3);font-size:.8em}
+    .review-stars{color:var(--amber);letter-spacing:1px;font-size:.95em}
+    .review-platform{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75em;font-weight:600;background:var(--bg3);color:var(--text2);margin-left:8px}
+    .review-text{color:var(--text2);font-size:.93em;line-height:1.65;margin-top:4px}
+
+    /* Bug Cards */
+    .bug-list{display:flex;flex-direction:column;gap:12px}
+    .bug-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
+    .bug-card:hover{border-color:var(--border2)}
+    .bug-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1em}
+    .bug-open{background:rgba(16,185,129,.15);color:var(--green)}
+    .bug-body{flex:1;min-width:0}
+    .bug-title{font-weight:600;font-size:1em;margin-bottom:4px}
+    .bug-meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:.82em;color:var(--text3)}
+    .bug-meta span{display:inline-flex;align-items:center;gap:4px}
+    .bug-label{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8em;font-weight:600}
+    .label-new{background:rgba(245,158,11,.15);color:var(--amber)}
+    .label-confirmed{background:rgba(59,130,246,.15);color:#3b82f6}
+    .label-fixed{background:rgba(16,185,129,.15);color:var(--green)}
+    .bug-desc{color:var(--text2);font-size:.9em;margin-top:8px;line-height:1.5}
+    .bug-steps{margin-top:8px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);font-size:.85em;color:var(--text2);border:1px solid var(--border)}
+    .bug-steps strong{display:block;margin-bottom:4px;color:var(--text)}
+    .bug-steps pre{margin:0;white-space:pre-wrap;font-family:inherit}
+    .severity-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+    .dot-low{background:var(--green)}.dot-medium{background:var(--amber)}.dot-high{background:var(--red)}.dot-critical{background:#ff6b6b;box-shadow:0 0 6px var(--red)}
+
+    /* Write Form */
+    .write-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:700px}
+    .write-panel h3{margin-bottom:24px;font-size:1.2em}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-full{grid-column:1/-1}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;margin-bottom:6px;font-weight:600;font-size:.88em;color:var(--text2)}
+    .fg input,.fg textarea,.fg select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:.93em;font-family:inherit;transition:border-color .2s}
+    .fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--primary)}
+    .fg textarea{resize:vertical;min-height:80px}
+    .stars-input{display:flex;gap:6px;font-size:2em;cursor:pointer}
+    .stars-input .s{color:var(--border);transition:color .15s}.stars-input .s.on{color:var(--amber)}
+    .btn-submit{padding:14px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-weight:700;font-size:1em;cursor:pointer;transition:all .2s}
+    .btn-submit:hover{background:var(--primary-hover);transform:translateY(-1px)}
+    .btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .form-msg{margin-top:12px;padding:12px;border-radius:var(--radius-sm);text-align:center;font-size:.9em;display:none}
+    .form-msg.ok{display:block;background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+    .form-msg.err{display:block;background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+    .empty-state{text-align:center;padding:60px 20px;color:var(--text3)}
+    .empty-state .icon{font-size:3em;margin-bottom:12px;opacity:.4}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text3);font-size:.9em;margin-bottom:16px;transition:color .2s}
+    .back-link:hover{color:var(--text)}
+
+    @media(max-width:600px){
+      .form-grid{grid-template-columns:1fr}
+      .bug-card{flex-direction:column}
+      .comm-header{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/icon.svg" alt="AI Tools" width="36" height="36">
+        <a href="index.html" class="logo-text">AI Tools</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#download">Download</a>
+        <a href="community.html" style="color:var(--text)">Community</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="comm-hero">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Back to Download</a>
+      <h1>Community</h1>
+      <p>Reviews, feedback, and bug reports from AI Tools users.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:40px">
+    <!-- Section Switcher -->
+    <div class="section-nav">
+      <button class="active" onclick="showSection('reviews',this)">Reviews</button>
+      <button onclick="showSection('bugs',this)">Bug Reports</button>
+      <button onclick="showSection('write',this)">Write a Review</button>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="comm-section active" id="sec-reviews">
+      <div class="comm-header">
+        <h2>User Reviews</h2>
+        <div class="comm-stats">
+          <span id="review-count">0 reviews</span>
+          <span>Avg: <strong id="review-avg">-</strong></span>
+        </div>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterReviews('all',this)">All</button>
+        <button class="filter-btn" onclick="filterReviews('5',this)">5 Stars</button>
+        <button class="filter-btn" onclick="filterReviews('4',this)">4 Stars</button>
+        <button class="filter-btn" onclick="filterReviews('3',this)">3 Stars</button>
+        <button class="filter-btn" onclick="filterReviews('low',this)">1-2 Stars</button>
+      </div>
+      <div id="reviews-list" class="review-grid"></div>
+    </div>
+
+    <!-- BUGS -->
+    <div class="comm-section" id="sec-bugs">
+      <div class="comm-header">
+        <h2>Bug Reports</h2>
+        <div class="comm-stats">
+          <span id="bug-count">0 reports</span>
+          <span id="bug-open-count">0 open</span>
+        </div>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterBugs('all',this)">All</button>
+        <button class="filter-btn" onclick="filterBugs('critical',this)">Critical</button>
+        <button class="filter-btn" onclick="filterBugs('high',this)">High</button>
+        <button class="filter-btn" onclick="filterBugs('medium',this)">Medium</button>
+        <button class="filter-btn" onclick="filterBugs('low',this)">Low</button>
+      </div>
+      <div id="bugs-list" class="bug-list"></div>
+    </div>
+
+    <!-- WRITE REVIEW -->
+    <div class="comm-section" id="sec-write">
+      <div class="write-panel">
+        <h3>Share Your Experience</h3>
+        <form id="review-form">
+          <div class="form-grid">
+            <div class="fg">
+              <label>Name</label>
+              <input type="text" id="r-name" placeholder="Your name" required>
+            </div>
+            <div class="fg">
+              <label>Platform</label>
+              <select id="r-platform">
+                <option>Windows</option><option>Linux</option><option>Android</option>
+              </select>
+            </div>
+            <div class="fg form-full">
+              <label>Rating</label>
+              <div class="stars-input" id="stars-in">
+                <span class="s" data-v="1">&#9733;</span>
+                <span class="s" data-v="2">&#9733;</span>
+                <span class="s" data-v="3">&#9733;</span>
+                <span class="s" data-v="4">&#9733;</span>
+                <span class="s" data-v="5">&#9733;</span>
+              </div>
+            </div>
+            <div class="fg form-full">
+              <label>Your Review</label>
+              <textarea id="r-msg" rows="4" placeholder="What do you think about AI Tools?" required></textarea>
+            </div>
+            <div class="fg form-full">
+              <button type="submit" class="btn-submit" id="r-btn">Submit Review</button>
+              <div id="r-msg-box" class="form-msg"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="write-panel" style="margin-top:24px">
+        <h3>Report a Bug</h3>
+        <form id="bug-form">
+          <div class="form-grid">
+            <div class="fg">
+              <label>Name</label>
+              <input type="text" id="b-name" placeholder="Your name" required>
+            </div>
+            <div class="fg">
+              <label>Platform</label>
+              <select id="b-platform">
+                <option>Windows</option><option>Linux</option><option>Android</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>App Version</label>
+              <input type="text" id="b-version" placeholder="v1.0.1">
+            </div>
+            <div class="fg">
+              <label>Severity</label>
+              <select id="b-severity">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
+            <div class="fg form-full">
+              <label>Bug Title</label>
+              <input type="text" id="b-title" placeholder="Brief summary" required>
+            </div>
+            <div class="fg form-full">
+              <label>What happened?</label>
+              <textarea id="b-msg" rows="3" placeholder="Describe the bug..." required></textarea>
+            </div>
+            <div class="fg form-full">
+              <label>Steps to Reproduce (optional)</label>
+              <textarea id="b-steps" rows="3" placeholder="1. Open app&#10;2. Go to...&#10;3. Click..."></textarea>
+            </div>
+            <div class="fg form-full">
+              <button type="submit" class="btn-submit" id="b-btn">Submit Bug Report</button>
+              <div id="b-msg-box" class="form-msg"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 AI Tools. MIT License.</p>
+      <div class="footer-links">
+        <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank">GitHub</a>
+        <a href="index.html">Download</a>
+        <a href="community.html">Community</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    // Section switch
+    window.showSection = function(name, btn) {
+      document.querySelectorAll('.section-nav button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.comm-section').forEach(s=>s.classList.remove('active'));
+      document.getElementById('sec-'+name).classList.add('active');
+    };
+
+    // Star rating
+    var selRating = 5;
+    var stars = document.querySelectorAll('#stars-in .s');
+    function setStars(n){selRating=n;stars.forEach(s=>{s.classList.toggle('on',parseInt(s.dataset.v)<=n)})}
+    stars.forEach(s=>{s.onclick=()=>setStars(parseInt(s.dataset.v))});
+    setStars(5);
+
+    var allReviews=[], allBugs=[];
+    var avatarColors = ['avatar-a','avatar-b','avatar-c','avatar-d','avatar-e'];
+
+    function starsHTML(n){return '&#9733;'.repeat(n)+'&#9734;'.repeat(5-n)}
+    function timeAgo(d){
+      var diff=(Date.now()-new Date(d).getTime())/1000;
+      if(diff<60)return 'just now';if(diff<3600)return Math.floor(diff/60)+'m ago';
+      if(diff<86400)return Math.floor(diff/3600)+'h ago';return Math.floor(diff/86400)+'d ago';
+    }
+
+    // Load reviews
+    function loadReviews(){
+      fetch('api.php?type=reviews&action=list&t='+Date.now())
+      .then(r=>r.json()).then(d=>{
+        allReviews=d.items||[];
+        document.getElementById('review-count').textContent=allReviews.length+' reviews';
+        if(allReviews.length){
+          var avg=allReviews.reduce((s,r)=>s+(r.rating||5),0)/allReviews.length;
+          document.getElementById('review-avg').textContent=avg.toFixed(1)+' Stars';
+        }
+        renderReviews(allReviews);
+      });
+    }
+
+    function renderReviews(items){
+      var el=document.getElementById('reviews-list');
+      if(!items.length){el.innerHTML='<div class="empty-state"><div class="icon">&#9733;</div><p>No reviews yet. Be the first!</p></div>';return}
+      el.innerHTML=items.map((r,i)=>{
+        var c=avatarColors[i%avatarColors.length];
+        return '<div class="review-card">'+
+          '<div class="review-top">'+
+            '<div class="review-avatar '+c+'">'+r.name.charAt(0).toUpperCase()+'</div>'+
+            '<div class="review-info">'+
+              '<div><span class="review-name">'+r.name+'</span><span class="review-platform">'+(r.platform||'')+'</span></div>'+
+              '<div class="review-stars">'+starsHTML(r.rating||5)+'</div>'+
+            '</div>'+
+            '<div class="review-date">'+timeAgo(r.date)+'</div>'+
+          '</div>'+
+          '<div class="review-text">'+r.message+'</div>'+
+        '</div>';
+      }).join('');
+    }
+
+    window.filterReviews=function(f,btn){
+      document.querySelectorAll('#sec-reviews .filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      if(f==='all')return renderReviews(allReviews);
+      if(f==='low')return renderReviews(allReviews.filter(r=>(r.rating||5)<=2));
+      renderReviews(allReviews.filter(r=>String(r.rating||5)===f));
+    };
+
+    // Load bugs
+    function loadBugs(){
+      fetch('api.php?type=bugs&action=list&t='+Date.now())
+      .then(r=>r.json()).then(d=>{
+        allBugs=d.items||[];
+        document.getElementById('bug-count').textContent=allBugs.length+' reports';
+        document.getElementById('bug-open-count').textContent=allBugs.filter(b=>b.status!=='fixed').length+' open';
+        renderBugs(allBugs);
+      });
+    }
+
+    function renderBugs(items){
+      var el=document.getElementById('bugs-list');
+      if(!items.length){el.innerHTML='<div class="empty-state"><div class="icon">&#9889;</div><p>No bug reports. Looking good!</p></div>';return}
+      el.innerHTML=items.map(b=>{
+        var dot='dot-'+b.severity;
+        var labelClass='label-'+(b.status||'new');
+        return '<div class="bug-card">'+
+          '<div class="bug-icon bug-open">&#9889;</div>'+
+          '<div class="bug-body">'+
+            '<div class="bug-title">'+b.title+'</div>'+
+            '<div class="bug-meta">'+
+              '<span><span class="severity-dot '+dot+'"></span>'+b.severity+'</span>'+
+              '<span>'+b.name+'</span>'+
+              '<span>'+(b.platform||'')+(b.version?' v'+b.version:'')+'</span>'+
+              '<span>'+timeAgo(b.date)+'</span>'+
+              '<span class="bug-label '+labelClass+'">'+(b.status||'new')+'</span>'+
+            '</div>'+
+            '<div class="bug-desc">'+b.message+'</div>'+
+            (b.steps?'<div class="bug-steps"><strong>Steps to reproduce</strong><pre>'+b.steps+'</pre></div>':'')+
+          '</div>'+
+        '</div>';
+      }).join('');
+    }
+
+    window.filterBugs=function(f,btn){
+      document.querySelectorAll('#sec-bugs .filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      if(f==='all')return renderBugs(allBugs);
+      renderBugs(allBugs.filter(b=>b.severity===f));
+    };
+
+    // Submit review
+    document.getElementById('review-form').onsubmit=function(e){
+      e.preventDefault();
+      var btn=document.getElementById('r-btn');
+      btn.disabled=true;btn.textContent='Sending...';
+      fetch('api.php?type=reviews',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:document.getElementById('r-name').value,message:document.getElementById('r-msg').value,rating:selRating,platform:document.getElementById('r-platform').value})
+      }).then(r=>r.json()).then(d=>{
+        var m=document.getElementById('r-msg-box');
+        if(d.success){m.className='form-msg ok';m.textContent='Review submitted!';this.reset();setStars(5);loadReviews();
+          setTimeout(()=>{showSection('reviews',document.querySelector('.section-nav button'))},1200);
+        }else{m.className='form-msg err';m.textContent=d.error||'Failed'}
+        btn.disabled=false;btn.textContent='Submit Review';
+      }).catch(()=>{document.getElementById('r-msg-box').className='form-msg err';document.getElementById('r-msg-box').textContent='Network error';btn.disabled=false;btn.textContent='Submit Review'});
+    };
+
+    // Submit bug
+    document.getElementById('bug-form').onsubmit=function(e){
+      e.preventDefault();
+      var btn=document.getElementById('b-btn');
+      btn.disabled=true;btn.textContent='Sending...';
+      fetch('api.php?type=bugs',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:document.getElementById('b-name').value,message:document.getElementById('b-msg').value,title:document.getElementById('b-title').value,
+          platform:document.getElementById('b-platform').value,version:document.getElementById('b-version').value,severity:document.getElementById('b-severity').value,steps:document.getElementById('b-steps').value})
+      }).then(r=>r.json()).then(d=>{
+        var m=document.getElementById('b-msg-box');
+        if(d.success){m.className='form-msg ok';m.textContent='Bug report submitted!';this.reset();loadBugs();
+          setTimeout(()=>{showSection('bugs',document.querySelector('.section-nav button'))},1200);
+        }else{m.className='form-msg err';m.textContent=d.error||'Failed'}
+        btn.disabled=false;btn.textContent='Submit Bug Report';
+      }).catch(()=>{document.getElementById('b-msg-box').className='form-msg err';document.getElementById('b-msg-box').textContent='Network error';btn.disabled=false;btn.textContent='Submit Bug Report'});
+    };
+
+    loadReviews();
+    loadBugs();
+  })();
+  </script>
+</body>
+</html>

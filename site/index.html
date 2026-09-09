@@ -19,7 +19,7 @@
       <nav class="nav">
         <a href="#download">Download</a>
         <a href="#features">Features</a>
-        <a href="#community">Community</a>
+        <a href="community.html">Community</a>
       </nav>
     </div>
   </header>
@@ -101,119 +101,11 @@
     </div>
   </section>
 
-  <!-- Community Section with Tabs -->
-  <section class="community" id="community">
-    <div class="container">
-      <h2>Community</h2>
-      <p class="community-sub">Reviews, bug reports, and feedback from users like you.</p>
-
-      <div class="tabs">
-        <button class="tab active" data-tab="reviews">Reviews</button>
-        <button class="tab" data-tab="bugs">Bug Reports</button>
-        <button class="tab" data-tab="submit-review">Write Review</button>
-        <button class="tab" data-tab="submit-bug">Report Bug</button>
-      </div>
-
-      <!-- Reviews List -->
-      <div class="tab-content active" id="tab-reviews">
-        <div id="reviews-list" class="items-list">
-          <div class="loading">Loading reviews...</div>
-        </div>
-      </div>
-
-      <!-- Bugs List -->
-      <div class="tab-content" id="tab-bugs">
-        <div id="bugs-list" class="items-list">
-          <div class="loading">Loading bug reports...</div>
-        </div>
-      </div>
-
-      <!-- Submit Review -->
-      <div class="tab-content" id="tab-submit-review">
-        <form id="review-form" class="submit-form">
-          <h3>Share Your Experience</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="review-name">Your Name</label>
-              <input type="text" id="review-name" placeholder="e.g. Ahmed" required>
-            </div>
-            <div class="form-group">
-              <label for="review-platform">Platform</label>
-              <select id="review-platform">
-                <option value="Windows">Windows</option>
-                <option value="Linux">Linux</option>
-                <option value="Android">Android</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Rating</label>
-            <div class="star-rating" id="star-rating">
-              <span class="star" data-value="1">&#9733;</span>
-              <span class="star" data-value="2">&#9733;</span>
-              <span class="star" data-value="3">&#9733;</span>
-              <span class="star" data-value="4">&#9733;</span>
-              <span class="star" data-value="5">&#9733;</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="review-message">Your Review</label>
-            <textarea id="review-message" rows="4" placeholder="Tell others about your experience with AI Tools..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit Review</button>
-          <div id="review-msg" class="form-msg"></div>
-        </form>
-      </div>
-
-      <!-- Submit Bug -->
-      <div class="tab-content" id="tab-submit-bug">
-        <form id="bug-form" class="submit-form">
-          <h3>Report a Bug</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="bug-name">Your Name</label>
-              <input type="text" id="bug-name" placeholder="e.g. Ahmed" required>
-            </div>
-            <div class="form-group">
-              <label for="bug-platform">Platform</label>
-              <select id="bug-platform">
-                <option value="Windows">Windows</option>
-                <option value="Linux">Linux</option>
-                <option value="Android">Android</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="bug-version">App Version</label>
-              <input type="text" id="bug-version" placeholder="e.g. v1.0.1">
-            </div>
-            <div class="form-group">
-              <label for="bug-severity">Severity</label>
-              <select id="bug-severity">
-                <option value="low">Low - Minor issue</option>
-                <option value="medium" selected>Medium - Affects usage</option>
-                <option value="high">High - Major problem</option>
-                <option value="critical">Critical - App crashes</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="bug-title">Bug Title</label>
-            <input type="text" id="bug-title" placeholder="Brief description of the bug" required>
-          </div>
-          <div class="form-group">
-            <label for="bug-message">Details</label>
-            <textarea id="bug-message" rows="4" placeholder="What happened? What did you expect?" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="bug-steps">Steps to Reproduce</label>
-            <textarea id="bug-steps" rows="3" placeholder="1. Open app&#10;2. Click on...&#10;3. See error..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit Bug Report</button>
-          <div id="bug-msg" class="form-msg"></div>
-        </form>
-      </div>
+  <section class="community-banner">
+    <div class="container" style="text-align:center;padding:60px 0">
+      <h2 style="margin-bottom:12px">Community</h2>
+      <p style="color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto">Read reviews from other users or report bugs to help us improve AI Tools.</p>
+      <a href="community.html" class="btn btn-primary">View Community &rarr;</a>
     </div>
   </section>
 
@@ -223,7 +115,7 @@
       <div class="footer-links">
         <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank">GitHub</a>
         <a href="#download">Download</a>
-        <a href="#community">Community</a>
+        <a href="community.html">Community</a>
       </div>
     </div>
   </footer>
