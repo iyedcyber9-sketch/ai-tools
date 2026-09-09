@@ -30,9 +30,9 @@ jobs:
           Get-Item $zip | Select-Object Name, Length
 
       - name: Upload to release
-        if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
           files: AI_Tools_Windows_x64.zip
+          tag_name: v1.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{{{ secrets.GITHUB_TOKEN }}}}
