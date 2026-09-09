@@ -1,0 +1,34 @@
+# AI Tools - Byethost .htaccess
+
+# Force correct MIME types
+AddType application/vnd.android.package-archive .apk
+AddType application/gzip .tar.gz
+AddType application/x-zip-compressor .zip
+AddType application/x-executable .exe
+
+# CORS for version.json
+<Files "version.json">
+  Header set Access-Control-Allow-Origin "*"
+  Header set Cache-Control "no-cache, must-revalidate"
+</Files>
+
+# Block hotlinking (optional - uncomment to protect)
+# RewriteEngine On
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^https?://(aiunlimited\.byethost6\.com|localhost) [NC]
+# RewriteRule \.(apk|exe|zip|tar\.gz)$ - [F,NC]
+
+# Prevent directory listing
+Options -Indexes
+
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>

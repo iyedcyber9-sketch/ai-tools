@@ -1,0 +1,36 @@
+{
+  "version": "1.0.1",
+  "build": 2,
+  "date": "2026-09-09",
+  "changelog": [
+    "Fresh build with updated models",
+    "PDF Q&A with Syncfusion viewer",
+    "Auto OS detection on download page",
+    "Download counters and in-app update support"
+  ],
+  "files": [
+    {
+      "os": "windows",
+      "name": "AI_Tools_Windows_x64.zip",
+      "url_github": "https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_Windows_x64.zip",
+      "size": null,
+      "sha256": null
+    },
+    {
+      "os": "linux",
+      "name": "AI_Tools_Kali_Linux_x64_release.tar.gz",
+      "url_github": "https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_Kali_Linux_x64_release.tar.gz",
+      "size": 12522515,
+      "sha256": "fb9e3ceebfe97007df14fe207284de1e3cefa92610f650bdb3c462bea38af6ca"
+    },
+    {
+      "os": "android",
+      "name": "AI_Tools_arm64_release.apk",
+      "url_github": "https://github.com/anomalyco/opencode/releases/latest/download/AI_Tools_arm64_release.apk",
+      "size": 24371253,
+      "sha256": "31eaeee2904facc957ecc0f4d9d4aae544f533c8ff7741009ae56c437ddaac6a"
+    }
+  ],
+  "minRamGB": 4,
+  "models_count": 30
+}
