@@ -5,6 +5,9 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -29,10 +32,15 @@ jobs:
           Write-Host "Created $zip"
           Get-Item $zip | Select-Object Name, Length
 
-      - name: Upload to release
-        uses: softprops/action-gh-release@v2
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          files: AI_Tools_Windows_x64.zip
-          tag_name: v1.0.1
+          name: windows-build
+          path: AI_Tools_Windows_x64.zip
+
+      - name: Upload to release
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{{{ secrets.GITHUB_TOKEN }}}}
+        run: |
+          gh release upload v1.0.1 AI_Tools_Windows_x64.zip --clobber
