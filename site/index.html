@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools - Free Offline AI | Download</title>
-  <meta name="description" content="Free offline AI assistant with DeepSeek & Qwen models. Windows, Linux, Android.">
+  <title>AI Tools - Free Offline AI</title>
+  <meta name="description" content="Free offline AI with DeepSeek & Qwen. Windows, Linux, Android.">
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,54 +12,66 @@
   <header class="header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="assets/icon.svg" alt="AI Tools" width="36" height="36">
+        <img src="assets/icon.svg" alt="AI" width="36" height="36">
         <span class="logo-text">AI Tools</span>
-        <span class="version-badge" id="version-badge">v1.0.1</span>
+        <span class="version-badge">v1.0.1</span>
       </div>
       <nav class="nav">
-        <a href="#download">Download</a>
-        <a href="#features">Features</a>
-        <a href="community.html">Community</a>
+        <a href="#download" data-i18n="nav_download">Download</a>
+        <a href="#features" data-i18n="nav_features">Features</a>
+        <a href="community.html" data-i18n="nav_community">Community</a>
+        <div class="toggle-bar">
+          <div class="lang-select">
+            <button class="lang-btn" onclick="toggleLangMenu()"><span id="lang-label">EN</span></button>
+            <div class="lang-menu" id="lang-menu">
+              <button data-lang="en" onclick="setLang('en')">English</button>
+              <button data-lang="ar" onclick="setLang('ar')">العربية</button>
+              <button data-lang="es" onclick="setLang('es')">Español</button>
+              <button data-lang="fr" onclick="setLang('fr')">Français</button>
+            </div>
+          </div>
+          <button class="theme-btn" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button>
+        </div>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <h1>Free Offline AI for Everyone</h1>
-      <p class="hero-sub">DeepSeek & Qwen models running locally on your device. No API keys needed.</p>
+      <h1 data-i18n="hero_title">Free Offline AI for Everyone</h1>
+      <p class="hero-sub" data-i18n="hero_sub">DeepSeek & Qwen models running locally on your device. No API keys needed.</p>
       <div class="hero-stats">
-        <div class="stat"><strong>30+</strong><span>Models</span></div>
-        <div class="stat"><strong>3</strong><span>Platforms</span></div>
-        <div class="stat"><strong id="total-downloads">82</strong><span>Downloads</span></div>
+        <div class="stat"><strong>30+</strong><span data-i18n="stat_models">Models</span></div>
+        <div class="stat"><strong>3</strong><span data-i18n="stat_platforms">Platforms</span></div>
+        <div class="stat"><strong id="total-downloads">0</strong><span data-i18n="stat_downloads">Downloads</span></div>
       </div>
-      <a href="#download" class="btn btn-primary btn-lg">Download Now</a>
+      <a href="#download" class="btn btn-primary btn-lg btn-glow" data-i18n="btn_download_now">Download Now</a>
     </div>
   </section>
 
   <section class="features" id="features">
     <div class="container">
-      <h2>Why AI Tools?</h2>
+      <h2 data-i18n="feat_title">Why AI Tools?</h2>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>100% Private</h3>
-          <p>All inference happens locally. Your conversations never leave your device.</p>
+          <h3 data-i18n="feat1_title">100% Private</h3>
+          <p data-i18n="feat1_desc">All inference happens locally. Your conversations never leave your device.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <h3>Multi-Platform</h3>
-          <p>Windows, Linux, Android - same features everywhere.</p>
+          <h3 data-i18n="feat2_title">Multi-Platform</h3>
+          <p data-i18n="feat2_desc">Windows, Linux, Android — same features everywhere.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8"/><path d="M8 8h8v8"/></svg></div>
-          <h3>GPU Accelerated</h3>
-          <p>Auto-detects NVIDIA CUDA, Vulkan, OpenCL.</p>
+          <h3 data-i18n="feat3_title">GPU Accelerated</h3>
+          <p data-i18n="feat3_desc">Auto-detects NVIDIA CUDA, Vulkan, OpenCL.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <h3>PDF Q&A</h3>
-          <p>Upload PDFs and ask questions. AI answers using RAG.</p>
+          <h3 data-i18n="feat4_title">PDF Q&A</h3>
+          <p data-i18n="feat4_desc">Upload PDFs and ask questions. AI answers using RAG.</p>
         </div>
       </div>
     </div>
@@ -67,30 +79,30 @@
 
   <section class="download" id="download">
     <div class="container">
-      <h2>Download AI Tools</h2>
-      <p class="download-sub">Free forever. No account needed.</p>
+      <h2 data-i18n="dl_title">Download AI Tools</h2>
+      <p class="download-sub" data-i18n="dl_sub">Free forever. No account needed.</p>
       <div class="download-cards">
         <div class="download-card" data-os="windows">
           <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#0078d4"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg></div>
-          <h3>Windows</h3>
-          <p class="card-desc">Windows 10/11 64-bit</p>
-          <span class="card-size" id="win-size">~60 MB</span>
-          <a href="download.php?file=windows" class="btn btn-download">Download .exe</a>
+          <h3 data-i18n="dl_windows">Windows</h3>
+          <p class="card-desc" data-i18n="dl_windows_desc">Windows 10/11 64-bit</p>
+          <span class="card-size">~60 MB</span>
+          <a href="download.php?file=windows" class="btn btn-download" data-i18n="dl_btn_exe">Download .exe</a>
         </div>
         <div class="download-card featured" data-os="linux">
           <div class="card-badge">Popular</div>
           <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.199.029.345-.169.457-.372.115-.199.199-.476.34-.592.135-.134.273-.073.387-.04.267.067.456.274.697.369.336.135.598.069.867-.072.373-.193.604-.603.893-.894.199-.199.385-.495.697-.688.354-.199.74-.363 1.04-.601.135-.135.265-.267.338-.334a.43.43 0 01.156-.116c.098-.042.202-.067.308-.093.332-.07.668-.137.914-.47.199-.269.235-.535.226-.872-.01-.334-.106-.602-.267-.934-.135-.334-.268-.603-.268-1.003 0-.334.135-.534.268-.87.135-.334.268-.668.268-1.135 0-.2-.067-.334-.135-.534-.2-.535-.47-.802-.87-1.069-.399-.267-.87-.401-1.337-.468-.467-.067-.935-.067-1.404-.133-.47-.068-.936-.202-1.472-.134-.334.044-.536.203-.736.335-.467.334-.87.802-1.538 1.069-.334.135-.735.202-1.136.202-.4 0-.802-.067-1.136-.202-.668-.267-1.071-.735-1.538-1.069-.2-.132-.402-.29-.736-.335-.536-.068-1.003.066-1.472.134-.47.066-.938.066-1.405.133-.467.067-.937.2-1.337.468-.4.267-.67.534-.87 1.069-.067.2-.135.334-.135.534 0 .467.135.801.268 1.135.134.336.268.536.268.87 0 .337-.036.603-.226.872-.246.333-.582.4-.914.47a.428.428 0 00-.308.093l.003.003z"/></svg></div>
-          <h3>Linux</h3>
-          <p class="card-desc">Kali / Ubuntu / Debian x64</p>
-          <span class="card-size" id="linux-size">~12 MB</span>
-          <a href="download.php?file=linux" class="btn btn-download">Download .tar.gz</a>
+          <h3 data-i18n="dl_linux">Linux</h3>
+          <p class="card-desc" data-i18n="dl_linux_desc">Kali / Ubuntu / Debian x64</p>
+          <span class="card-size">~12 MB</span>
+          <a href="download.php?file=linux" class="btn btn-download" data-i18n="dl_btn_tar">Download .tar.gz</a>
         </div>
         <div class="download-card" data-os="android">
           <div class="card-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="#3ddc84"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.21-1.2-4.15-2.97-5.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg></div>
-          <h3>Android</h3>
-          <p class="card-desc">Android 7+ arm64</p>
-          <span class="card-size" id="android-size">~24 MB</span>
-          <a href="download.php?file=android" class="btn btn-download">Download .apk</a>
+          <h3 data-i18n="dl_android">Android</h3>
+          <p class="card-desc" data-i18n="dl_android_desc">Android 7+ arm64</p>
+          <span class="card-size">~24 MB</span>
+          <a href="download.php?file=android" class="btn btn-download" data-i18n="dl_btn_apk">Download .apk</a>
         </div>
       </div>
       <div class="download-stats">
@@ -102,20 +114,20 @@
   </section>
 
   <section class="community-banner">
-    <div class="container" style="text-align:center;padding:60px 0">
-      <h2 style="margin-bottom:12px">Community</h2>
-      <p style="color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto">Read reviews from other users or report bugs to help us improve AI Tools.</p>
-      <a href="community.html" class="btn btn-primary">View Community &rarr;</a>
+    <div class="container" style="text-align:center;padding:70px 0">
+      <h2 style="margin-bottom:12px" data-i18n="comm_banner_title">Community</h2>
+      <p style="color:var(--text2);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto" data-i18n="comm_banner_desc">Read reviews from other users or report bugs to help us improve AI Tools.</p>
+      <a href="community.html" class="btn btn-primary" data-i18n="comm_banner_btn">View Community →</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>&copy; 2026 AI Tools. MIT License.</p>
+      <p data-i18n="footer_copy">© 2026 AI Tools. MIT License.</p>
       <div class="footer-links">
-        <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank">GitHub</a>
-        <a href="#download">Download</a>
-        <a href="community.html">Community</a>
+        <a href="https://github.com/iyedcyber9-sketch/ai-tools" target="_blank" data-i18n="footer_github">GitHub</a>
+        <a href="#download" data-i18n="footer_download">Download</a>
+        <a href="community.html" data-i18n="footer_community">Community</a>
       </div>
     </div>
   </footer>
